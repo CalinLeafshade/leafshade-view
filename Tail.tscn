@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://c41beb61gk2jg"]
+
+[ext_resource type="Script" path="res://Tail.cs" id="1_8i5vg"]
+[ext_resource type="Texture2D" uid="uid://dc6j347axbrh8" path="res://sets/catboy/tail.png" id="1_wixxu"]
+[ext_resource type="Texture2D" uid="uid://dlognhppb4ryu" path="res://sets/catboy/tail_n.png" id="3_481ty"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_57mlh"]
+diffuse_texture = ExtResource("1_wixxu")
+normal_texture = ExtResource("3_481ty")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8i5vg")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-254, -1984)
+antialiased = true
+texture = SubResource("CanvasTexture_57mlh")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(374.51, 1988.24, 270.588, 1982.35, 168.627, 1980.39, 139.216, 1715.69, 125.49, 1417.65, 94.1177, 1184.31, 78.4314, 911.765, 41.1765, 682.353, 17.6471, 513.726, 17.6471, 339.216, 47.0588, 194.118, 101.961, 105.882, 149.02, 98.0392, 176.471, 143.137, 188.235, 229.412, 200, 386.275, 201.961, 621.569, 201.961, 800, 213.726, 1013.73, 225.49, 1198.04, 243.137, 1349.02, 266.667, 1480.39, 294.118, 1621.57, 325.49, 1758.82, 354.902, 1878.43, 119.608, 227.451, 109.804, 415.686, 117.647, 594.118, 133.333, 772.549, 147.059, 956.863, 158.824, 1113.73)
+uv = PackedVector2Array(374.51, 1988.24, 270.588, 1982.35, 168.627, 1980.39, 139.216, 1715.69, 125.49, 1417.65, 94.1177, 1184.31, 78.4314, 911.765, 41.1765, 682.353, 17.6471, 513.726, 17.6471, 339.216, 47.0588, 194.118, 101.961, 105.882, 149.02, 98.0392, 176.471, 143.137, 188.235, 229.412, 200, 386.275, 201.961, 621.569, 201.961, 800, 213.726, 1013.73, 225.49, 1198.04, 243.137, 1349.02, 266.667, 1480.39, 294.118, 1621.57, 325.49, 1758.82, 354.902, 1878.43, 119.608, 227.451, 109.804, 415.686, 117.647, 594.118, 133.333, 772.549, 147.059, 956.863, 158.824, 1113.73)
+polygons = [PackedInt32Array(10, 25, 14, 13, 12, 11), PackedInt32Array(10, 25, 14, 15, 26, 9), PackedInt32Array(9, 8, 27, 16, 15, 26), PackedInt32Array(8, 7, 28, 17, 16, 27), PackedInt32Array(7, 6, 29, 18, 17, 28), PackedInt32Array(6, 5, 30, 19, 18, 29), PackedInt32Array(5, 30, 19, 20, 4), PackedInt32Array(4, 3, 23, 22, 21, 20), PackedInt32Array(3, 2, 1, 0, 24, 23)]
+bones = ["Bone2D", PackedFloat32Array(1, 1, 1, 1, 0.54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.46, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0), "Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.92), "Bone2D/Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1), "Bone2D/Bone2D/Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0.08, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0), "Bone2D/Bone2D/Bone2D/Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.92, 1, 0, 0), "Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0.46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.92, 0, 0), "Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0), "Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0), "Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0.46, 0.46, 0.46, 1, 0.92, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0), "Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0)]
+internal_vertex_count = 6
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D"]
+position = Vector2(-77, -681)
+rest = Transform2D(1, 0, 0, 1, -77, -681)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D/Bone2D"]
+position = Vector2(-21, -200)
+rest = Transform2D(1, 0, 0, 1, -21, -200)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(-13, -187)
+rest = Transform2D(1, 0, 0, 1, -13, -187)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(-13, -147)
+rest = Transform2D(1, 0, 0, 1, -13, -147)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(-5, -128)
+rest = Transform2D(1, 0, 0, 1, -8, -128)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(-3, -141)
+rest = Transform2D(1, 0, 0, 1, -8, -141)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(-5, -130)
+rest = Transform2D(1, 0, 0, 1, -3, -125)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(-3, -101)
+rotation = -0.120428
+rest = Transform2D(1, 0, 0, 1, 0, -101)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(13, -152)
+rest = Transform2D(1, 0, 0, 1, 21, -152)

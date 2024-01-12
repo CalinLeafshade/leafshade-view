@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl5efk2w5mg65"]
+
+[ext_resource type="Script" path="res://rendering/SpriteSet.cs" id="1_ve3eo"]
+[ext_resource type="Texture2D" uid="uid://br2d1a1tv1he6" path="res://sets/cowboy/idle.png" id="2_o1tu1"]
+
+[node name="SpriteSet" type="Node2D"]
+script = ExtResource("1_ve3eo")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -360)
+texture = ExtResource("2_o1tu1")

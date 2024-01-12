@@ -1,0 +1,175 @@
+[gd_scene load_steps=20 format=3 uid="uid://d3fer7oc44eqf"]
+
+[ext_resource type="Texture2D" uid="uid://ckqbsxgtuo7r0" path="res://rendering/snow.png" id="1_8qx1c"]
+[ext_resource type="Script" path="res://rendering/Weather.cs" id="1_hkurb"]
+[ext_resource type="Texture2D" uid="uid://bgpovj7r07etn" path="res://rendering/rain.png" id="3_4b7la"]
+[ext_resource type="Texture2D" uid="uid://472qdk720p6y" path="res://rendering/snow_n.png" id="3_ohta2"]
+[ext_resource type="Texture2D" uid="uid://dd4wkwcvm7kug" path="res://rendering/2d_lights_and_shadows_neutral_point_light.webp" id="4_vowhb"]
+
+[sub_resource type="Animation" id="Animation_k4jmh"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_kcvnh"]
+resource_name = "WeatherStart"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ke2ut"]
+_data = {
+"RESET": SubResource("Animation_k4jmh"),
+"WeatherStart": SubResource("Animation_kcvnh")
+}
+
+[sub_resource type="Gradient" id="Gradient_0bva4"]
+colors = PackedColorArray(1, 1, 1, 0.631373, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sbtva"]
+gradient = SubResource("Gradient_0bva4")
+
+[sub_resource type="Gradient" id="Gradient_hyu52"]
+offsets = PackedFloat32Array(0, 0.511111, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iat3o"]
+gradient = SubResource("Gradient_hyu52")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6q03e"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 500, 1)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 160.0
+angular_velocity_min = -392.21
+angular_velocity_max = 346.74
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.6
+color_ramp = SubResource("GradientTexture1D_iat3o")
+color_initial_ramp = SubResource("GradientTexture1D_sbtva")
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 3.9
+turbulence_noise_speed = Vector3(0, 1, 0)
+turbulence_influence_min = 0.01
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xjy24"]
+diffuse_texture = ExtResource("1_8qx1c")
+normal_texture = ExtResource("3_ohta2")
+
+[sub_resource type="Curve" id="Curve_2eyve"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.533333, 0.527472), 0.0, 0.0, 0, 0, Vector2(1, 0.505494), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_t13qx"]
+texture_mode = 1
+curve = SubResource("Curve_2eyve")
+
+[sub_resource type="Curve" id="Curve_fswqf"]
+max_value = 3.0
+_data = [Vector2(0, 0.362638), 0.0, 0.0, 0, 0, Vector2(1, 1.21978), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_onh1n"]
+curve = SubResource("Curve_fswqf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6wopl"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 50, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 600.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.1
+scale_max = 0.5
+scale_over_velocity_curve = SubResource("CurveTexture_onh1n")
+color = Color(0.901961, 0.941176, 0.941176, 1)
+alpha_curve = SubResource("CurveTexture_t13qx")
+
+[node name="Weather" type="Node2D"]
+script = ExtResource("1_hkurb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("../DirectionalLight2D")
+libraries = {
+"": SubResource("AnimationLibrary_ke2ut")
+}
+
+[node name="Snow" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -500)
+emitting = false
+amount = 750
+process_material = SubResource("ParticleProcessMaterial_6q03e")
+texture = SubResource("CanvasTexture_xjy24")
+lifetime = 5.0
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 20.0
+one_shot = true
+
+[node name="Rain" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -900)
+emitting = false
+amount = 800
+process_material = SubResource("ParticleProcessMaterial_6wopl")
+texture = ExtResource("3_4b7la")
+lifetime = 1.2
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-287, -558.5)
+scale = Vector2(3.46875, 3.31641)
+color = Color(0.454902, 0.686275, 1, 1)
+energy = 0.0
+texture = ExtResource("4_vowhb")
+height = 100.0
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.0
+blend_mode = 1

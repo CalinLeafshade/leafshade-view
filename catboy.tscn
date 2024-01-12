@@ -1,0 +1,44 @@
+[gd_scene load_steps=12 format=3 uid="uid://cfpsmclc3clho"]
+
+[ext_resource type="Script" path="res://sets/catboy/Catboy.cs" id="1_rj072"]
+[ext_resource type="Texture2D" uid="uid://csn1fn26a6yl7" path="res://sets/catboy/idle.png" id="2_ik6mb"]
+[ext_resource type="Texture2D" uid="uid://gtuoe5gywyrg" path="res://sets/catboy/idle_n.png" id="3_3tash"]
+[ext_resource type="Texture2D" uid="uid://bf0d65xnovfb6" path="res://sets/catboy/talk.png" id="3_dusfp"]
+[ext_resource type="Texture2D" uid="uid://vpka0n8dqbyx" path="res://sets/catboy/blink.png" id="4_1lbdi"]
+[ext_resource type="Texture2D" uid="uid://biwo73ajhotkm" path="res://sets/catboy/talkblink.png" id="5_kgyjc"]
+[ext_resource type="PackedScene" uid="uid://c41beb61gk2jg" path="res://Tail.tscn" id="6_l0gdx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sgios"]
+diffuse_texture = ExtResource("2_ik6mb")
+normal_texture = ExtResource("3_3tash")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lmv3a"]
+diffuse_texture = ExtResource("3_dusfp")
+normal_texture = ExtResource("3_3tash")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dwn6d"]
+diffuse_texture = ExtResource("4_1lbdi")
+normal_texture = ExtResource("3_3tash")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_c417a"]
+diffuse_texture = ExtResource("5_kgyjc")
+normal_texture = ExtResource("3_3tash")
+
+[node name="Catboy" type="Node2D"]
+script = ExtResource("1_rj072")
+SetName = "catboy"
+Idle = SubResource("CanvasTexture_sgios")
+Talk = SubResource("CanvasTexture_lmv3a")
+Blink = SubResource("CanvasTexture_dwn6d")
+TalkBlink = SubResource("CanvasTexture_c417a")
+
+[node name="Node2D" parent="." node_paths=PackedStringArray("SpriteSet") instance=ExtResource("6_l0gdx")]
+position = Vector2(-150, 0)
+rotation = -0.0523599
+scale = Vector2(0.3, 0.3)
+SpriteSet = NodePath("..")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -360)
+texture = ExtResource("2_ik6mb")

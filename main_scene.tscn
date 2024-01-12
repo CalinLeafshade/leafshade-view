@@ -1,0 +1,322 @@
+[gd_scene load_steps=24 format=3 uid="uid://dbx2m1r5hoc3x"]
+
+[ext_resource type="Script" path="res://MainScene.cs" id="1_615iq"]
+[ext_resource type="PackedScene" uid="uid://uy1vr7g7v6s6" path="res://audio/Listener.tscn" id="2_81fbf"]
+[ext_resource type="PackedScene" uid="uid://cy57dnakw4xss" path="res://rendering/avatar.tscn" id="2_s1fjm"]
+[ext_resource type="PackedScene" uid="uid://b73cji6hdevc2" path="res://rendering/TransitionManager.tscn" id="4_5ftvd"]
+[ext_resource type="Script" path="res://web/HttpListenerNode.cs" id="5_0tbm1"]
+[ext_resource type="Script" path="res://rendering/Weather.cs" id="6_wkoev"]
+[ext_resource type="Texture2D" uid="uid://ckqbsxgtuo7r0" path="res://rendering/snow.png" id="7_ijlxx"]
+[ext_resource type="Texture2D" uid="uid://bgpovj7r07etn" path="res://rendering/rain.png" id="8_47wjj"]
+[ext_resource type="Script" path="res://rendering/Lighting.cs" id="9_ovs51"]
+[ext_resource type="Texture2D" uid="uid://dd4wkwcvm7kug" path="res://rendering/2d_lights_and_shadows_neutral_point_light.webp" id="9_r8xdb"]
+
+[sub_resource type="Animation" id="Animation_xkx42"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Lighting/Dimmer:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Lighting/Dimmer:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Lighting/Dimmer:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Lighting/Dimmer:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Lighting/MoodLight:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Lighting/DirectionalLight2D1:energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Lighting/DirectionalLight2D2:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_al2ld"]
+resource_name = "WeatherStart"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Lighting/Dimmer:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.478431, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Lighting/Dimmer:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.596078, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Lighting/Dimmer:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.67451, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Lighting/Dimmer:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Lighting/MoodLight:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 3.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qbmy6"]
+_data = {
+"RESET": SubResource("Animation_xkx42"),
+"WeatherStart": SubResource("Animation_al2ld")
+}
+
+[sub_resource type="Gradient" id="Gradient_0bva4"]
+colors = PackedColorArray(1, 1, 1, 0.631373, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sbtva"]
+gradient = SubResource("Gradient_0bva4")
+
+[sub_resource type="Gradient" id="Gradient_hyu52"]
+offsets = PackedFloat32Array(0, 0.511111, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iat3o"]
+gradient = SubResource("Gradient_hyu52")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6q03e"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 500, 1)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 160.0
+angular_velocity_min = -392.21
+angular_velocity_max = 346.74
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.6
+color_ramp = SubResource("GradientTexture1D_iat3o")
+color_initial_ramp = SubResource("GradientTexture1D_sbtva")
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 3.9
+turbulence_noise_speed = Vector3(0, 1, 0)
+turbulence_influence_min = 0.01
+
+[sub_resource type="Curve" id="Curve_2eyve"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.533333, 0.527472), 0.0, 0.0, 0, 0, Vector2(1, 0.505494), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_t13qx"]
+texture_mode = 1
+curve = SubResource("Curve_2eyve")
+
+[sub_resource type="Curve" id="Curve_fswqf"]
+max_value = 3.0
+_data = [Vector2(0, 0.362638), 0.0, 0.0, 0, 0, Vector2(1, 1.21978), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_onh1n"]
+curve = SubResource("Curve_fswqf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6wopl"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 50, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 600.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.1
+scale_max = 0.5
+scale_over_velocity_curve = SubResource("CurveTexture_onh1n")
+color = Color(0.901961, 0.941176, 0.941176, 1)
+alpha_curve = SubResource("CurveTexture_t13qx")
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource("1_615iq")
+
+[node name="Listener" parent="." instance=ExtResource("2_81fbf")]
+top_level = true
+Threshold = 0.25
+
+[node name="Avatar" parent="." instance=ExtResource("2_s1fjm")]
+unique_name_in_owner = true
+BounceStrength = 1000.0
+BounceCooldown = 2000
+
+[node name="TransitionManager" parent="." instance=ExtResource("4_5ftvd")]
+unique_name_in_owner = true
+
+[node name="HttpListenerNode" type="Node" parent="."]
+script = ExtResource("5_0tbm1")
+
+[node name="Lighting" type="Node2D" parent="."]
+script = ExtResource("9_ovs51")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lighting"]
+unique_name_in_owner = true
+root_node = NodePath("../../Weather")
+libraries = {
+"": SubResource("AnimationLibrary_qbmy6")
+}
+
+[node name="MoodLight" type="PointLight2D" parent="Lighting"]
+position = Vector2(-255, -737)
+scale = Vector2(3.46875, 3.31641)
+color = Color(0.463357, 0.698558, 0.929739, 1)
+energy = 0.0
+texture = ExtResource("9_r8xdb")
+texture_scale = 2.0
+height = 140.0
+
+[node name="Dimmer" type="CanvasModulate" parent="Lighting"]
+
+[node name="DirectionalLight2D1" type="DirectionalLight2D" parent="Lighting"]
+position = Vector2(409, -727)
+rotation = 1.83434
+color = Color(0.839216, 0, 0.423529, 1)
+energy = 0.0
+height = 0.09
+
+[node name="DirectionalLight2D2" type="DirectionalLight2D" parent="Lighting"]
+position = Vector2(409, -727)
+rotation = -0.84823
+color = Color(0.0196078, 0.352941, 0.85098, 1)
+energy = 0.0
+height = 0.04
+
+[node name="DirectionalLight2D4" type="DirectionalLight2D" parent="Lighting"]
+position = Vector2(409, -727)
+rotation = 0.705113
+color = Color(0.25098, 0.454902, 0.219608, 1)
+energy = 0.0
+height = 0.03
+
+[node name="DirectionalLight2D3" type="DirectionalLight2D" parent="Lighting"]
+position = Vector2(409, -727)
+rotation = 2.19039
+color = Color(0.501961, 0.376471, 0.0745098, 1)
+energy = 0.0
+height = 0.03
+
+[node name="Weather" type="Node2D" parent="." node_paths=PackedStringArray("lighting")]
+unique_name_in_owner = true
+script = ExtResource("6_wkoev")
+lighting = NodePath("../Lighting")
+
+[node name="Snow" type="GPUParticles2D" parent="Weather"]
+unique_name_in_owner = true
+position = Vector2(0, -500)
+emitting = false
+amount = 750
+process_material = SubResource("ParticleProcessMaterial_6q03e")
+texture = ExtResource("7_ijlxx")
+lifetime = 5.0
+
+[node name="Timer" type="Timer" parent="Weather"]
+unique_name_in_owner = true
+wait_time = 20.0
+one_shot = true
+
+[node name="Rain" type="GPUParticles2D" parent="Weather"]
+unique_name_in_owner = true
+position = Vector2(0, -900)
+emitting = false
+amount = 800
+process_material = SubResource("ParticleProcessMaterial_6wopl")
+texture = ExtResource("8_47wjj")
+lifetime = 1.2
+
+[connection signal="StartedTalking" from="Listener" to="Avatar" method="StartTalking"]
+[connection signal="StoppedTalking" from="Listener" to="Avatar" method="StopTalking"]
+[connection signal="CostumeChanged" from="Avatar" to="TransitionManager" method="OnTransition"]
+[connection signal="Attachment" from="HttpListenerNode" to="Avatar" method="EnableAttachment"]
+[connection signal="CostumeChange" from="HttpListenerNode" to="Avatar" method="SetCostume"]
+[connection signal="LightingEffect" from="HttpListenerNode" to="Lighting" method="Effect"]
+[connection signal="WeatherChange" from="HttpListenerNode" to="Weather" method="Start"]

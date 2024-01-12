@@ -1,0 +1,211 @@
+[gd_scene load_steps=57 format=3 uid="uid://cy57dnakw4xss"]
+
+[ext_resource type="PackedScene" uid="uid://bl5efk2w5mg65" path="res://rendering/SpriteSet.tscn" id="1_a4o4k"]
+[ext_resource type="Script" path="res://rendering/Avatar.cs" id="1_aaach"]
+[ext_resource type="Script" path="res://rendering/SetSwitcher.cs" id="1_b8xn2"]
+[ext_resource type="Texture2D" uid="uid://iaur82hbpmgh" path="res://sets/halloween/idle.png" id="2_wd5tf"]
+[ext_resource type="Texture2D" uid="uid://drjgvj3hbbsr5" path="res://sets/leafshade/idle.png" id="2_ypubl"]
+[ext_resource type="Texture2D" uid="uid://tfidp72ssly8" path="res://sets/halloween/talk.png" id="3_vkbh8"]
+[ext_resource type="Texture2D" uid="uid://i45ku8uryh6c" path="res://sets/leafshade/talk.png" id="3_yfpky"]
+[ext_resource type="Texture2D" uid="uid://dntpc12tokfqd" path="res://sets/leafshade/blink.png" id="4_7mox5"]
+[ext_resource type="Texture2D" uid="uid://b2dds034s86xa" path="res://sets/halloween/blink.png" id="4_64nxd"]
+[ext_resource type="Texture2D" uid="uid://bfylyf66pqte8" path="res://sets/neon/idle.png" id="4_68wdy"]
+[ext_resource type="Texture2D" uid="uid://cdebpa5aea7oa" path="res://sets/halloween/idle_n.png" id="5_76mj7"]
+[ext_resource type="Texture2D" uid="uid://dkug2tfs44nhg" path="res://sets/leafshade/talkblink.png" id="5_bjnq1"]
+[ext_resource type="Texture2D" uid="uid://bk5nd7j0poqih" path="res://sets/halloween/talkblink.png" id="5_eakn2"]
+[ext_resource type="Texture2D" uid="uid://vdv1e3j2iwg4" path="res://sets/neon/idle_n.png" id="5_hwj2i"]
+[ext_resource type="Texture2D" uid="uid://bibnqfvutv4lu" path="res://sets/neon/talk.png" id="6_kmv3r"]
+[ext_resource type="Texture2D" uid="uid://cb2sfg2aleewe" path="res://sets/neon/blink.png" id="7_1wwpn"]
+[ext_resource type="Texture2D" uid="uid://n6eiobykmsxu" path="res://sets/neon/talkblink.png" id="8_jdxf4"]
+[ext_resource type="Texture2D" uid="uid://b54uvepjhweju" path="res://sets/leafshade/idle_n.png" id="9_54g8a"]
+[ext_resource type="Texture2D" uid="uid://dtygxy84xo6m0" path="res://gfx/partyhat.png" id="19_m65gf"]
+[ext_resource type="PackedScene" uid="uid://cfpsmclc3clho" path="res://catboy.tscn" id="19_pxaha"]
+[ext_resource type="Script" path="res://rendering/AttachmentManager.cs" id="19_qcif5"]
+[ext_resource type="Script" path="res://rendering/AttachmentItem.cs" id="20_ap2as"]
+[ext_resource type="Texture2D" uid="uid://e5c8aytlrdcd" path="res://gfx/partyhat_n.png" id="20_negq6"]
+[ext_resource type="Texture2D" uid="uid://br2d1a1tv1he6" path="res://sets/cowboy/idle.png" id="20_r878h"]
+[ext_resource type="Texture2D" uid="uid://b3bsgwjkivp7h" path="res://sets/cowboy/idle_n.png" id="21_75r3y"]
+[ext_resource type="Texture2D" uid="uid://jjvx5hthua4p" path="res://sets/cowboy/talk.png" id="22_g17ti"]
+[ext_resource type="Texture2D" uid="uid://dulhq08t2v8us" path="res://sets/cowboy/blink.png" id="23_nly7m"]
+[ext_resource type="Texture2D" uid="uid://8sqg2vmhkt5r" path="res://sets/cowboy/talkblink.png" id="24_nmueu"]
+[ext_resource type="Texture2D" uid="uid://dcr53yi086dmk" path="res://gfx/glasses.png" id="24_u3wap"]
+[ext_resource type="Texture2D" uid="uid://ckjxyuf1wf55t" path="res://gfx/fullglasses.png" id="26_cq0xa"]
+[ext_resource type="Texture2D" uid="uid://cfg8227umk7ni" path="res://gfx/glasses_n.png" id="26_f6o77"]
+[ext_resource type="Texture2D" uid="uid://duvrgyww788ws" path="res://gfx/fullglasses_n.png" id="28_xlo2h"]
+[ext_resource type="Texture2D" uid="uid://cjfhqf4dhu0ah" path="res://sets/cowboy/hat.png" id="29_jceav"]
+[ext_resource type="Texture2D" uid="uid://c1m1eeor4lc2f" path="res://sets/cowboy/hat_n.png" id="30_y7rof"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_j6aju"]
+diffuse_texture = ExtResource("4_68wdy")
+normal_texture = ExtResource("5_hwj2i")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ti7uu"]
+diffuse_texture = ExtResource("6_kmv3r")
+normal_texture = ExtResource("5_hwj2i")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_e7038"]
+diffuse_texture = ExtResource("7_1wwpn")
+normal_texture = ExtResource("5_hwj2i")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lnl3n"]
+diffuse_texture = ExtResource("8_jdxf4")
+normal_texture = ExtResource("5_hwj2i")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_s2p3l"]
+diffuse_texture = ExtResource("2_wd5tf")
+normal_texture = ExtResource("5_76mj7")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7vfli"]
+diffuse_texture = ExtResource("3_vkbh8")
+normal_texture = ExtResource("5_76mj7")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hp0qd"]
+diffuse_texture = ExtResource("4_64nxd")
+normal_texture = ExtResource("5_76mj7")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_02oyp"]
+diffuse_texture = ExtResource("5_eakn2")
+normal_texture = ExtResource("5_76mj7")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_s7lq2"]
+diffuse_texture = ExtResource("2_ypubl")
+normal_texture = ExtResource("9_54g8a")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0pay3"]
+diffuse_texture = ExtResource("3_yfpky")
+normal_texture = ExtResource("9_54g8a")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kewic"]
+diffuse_texture = ExtResource("4_7mox5")
+normal_texture = ExtResource("9_54g8a")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0u4ew"]
+diffuse_texture = ExtResource("5_bjnq1")
+normal_texture = ExtResource("9_54g8a")
+
+[sub_resource type="Shader" id="Shader_aakyd"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.2.1.stable.mono's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wj6gq"]
+shader = SubResource("Shader_aakyd")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vyoxg"]
+diffuse_texture = ExtResource("20_r878h")
+normal_texture = ExtResource("21_75r3y")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xio8e"]
+diffuse_texture = ExtResource("22_g17ti")
+normal_texture = ExtResource("21_75r3y")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g5qja"]
+diffuse_texture = ExtResource("23_nly7m")
+normal_texture = ExtResource("21_75r3y")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qdela"]
+diffuse_texture = ExtResource("24_nmueu")
+normal_texture = ExtResource("21_75r3y")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h0fed"]
+diffuse_texture = ExtResource("19_m65gf")
+normal_texture = ExtResource("20_negq6")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_on14m"]
+diffuse_texture = ExtResource("29_jceav")
+normal_texture = ExtResource("30_y7rof")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1shtd"]
+diffuse_texture = ExtResource("24_u3wap")
+normal_texture = ExtResource("26_f6o77")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wb87j"]
+diffuse_texture = ExtResource("26_cq0xa")
+normal_texture = ExtResource("28_xlo2h")
+
+[node name="Avatar" type="Node2D" node_paths=PackedStringArray("Attachments")]
+script = ExtResource("1_aaach")
+Attachments = NodePath("AttachmentManager")
+
+[node name="SetSwitcher" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_b8xn2")
+ActiveSet = "leafshade"
+
+[node name="Neon" parent="SetSwitcher" instance=ExtResource("1_a4o4k")]
+SetName = "neon"
+Idle = SubResource("CanvasTexture_j6aju")
+Talk = SubResource("CanvasTexture_ti7uu")
+Blink = SubResource("CanvasTexture_e7038")
+TalkBlink = SubResource("CanvasTexture_lnl3n")
+
+[node name="Vampire" parent="SetSwitcher" instance=ExtResource("1_a4o4k")]
+SetName = "vampire"
+Idle = SubResource("CanvasTexture_s2p3l")
+Talk = SubResource("CanvasTexture_7vfli")
+Blink = SubResource("CanvasTexture_hp0qd")
+TalkBlink = SubResource("CanvasTexture_02oyp")
+
+[node name="Leafshade" parent="SetSwitcher" instance=ExtResource("1_a4o4k")]
+SetName = "leafshade"
+Idle = SubResource("CanvasTexture_s7lq2")
+Talk = SubResource("CanvasTexture_0pay3")
+Blink = SubResource("CanvasTexture_kewic")
+TalkBlink = SubResource("CanvasTexture_0u4ew")
+
+[node name="Catboy" parent="SetSwitcher" instance=ExtResource("19_pxaha")]
+material = SubResource("ShaderMaterial_wj6gq")
+
+[node name="Cowboy" parent="SetSwitcher" instance=ExtResource("1_a4o4k")]
+position = Vector2(9, -46)
+SetName = "cowboy"
+Idle = SubResource("CanvasTexture_vyoxg")
+Talk = SubResource("CanvasTexture_xio8e")
+Blink = SubResource("CanvasTexture_g5qja")
+TalkBlink = SubResource("CanvasTexture_qdela")
+
+[node name="AttachmentManager" type="Node2D" parent="."]
+script = ExtResource("19_qcif5")
+
+[node name="Hat" type="Node2D" parent="AttachmentManager"]
+position = Vector2(0, -600)
+
+[node name="PartyHat" type="Node2D" parent="AttachmentManager/Hat" node_paths=PackedStringArray("FallbackSprite")]
+position = Vector2(22.495, -71.57)
+script = ExtResource("20_ap2as")
+DefaultLength = 60
+AttachmentName = "partyhat"
+FallbackSprite = NodePath("Sprite2D")
+Sprites = {
+"cowboy": NodePath("Sprite2D2")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager/Hat/PartyHat"]
+texture = SubResource("CanvasTexture_h0fed")
+
+[node name="Sprite2D2" type="Sprite2D" parent="AttachmentManager/Hat/PartyHat"]
+position = Vector2(-13.5, 265.5)
+texture = SubResource("CanvasTexture_on14m")
+
+[node name="GlassesSlot" type="Node2D" parent="AttachmentManager"]
+
+[node name="Glasses" type="Node2D" parent="AttachmentManager/GlassesSlot" node_paths=PackedStringArray("FallbackSprite")]
+position = Vector2(0, -410)
+script = ExtResource("20_ap2as")
+DefaultLength = 300
+AttachmentName = "glasses"
+FallbackSprite = NodePath("PartialGlasses")
+Sprites = {
+"neon": NodePath("FullGlasses")
+}
+
+[node name="PartialGlasses" type="Sprite2D" parent="AttachmentManager/GlassesSlot/Glasses"]
+position = Vector2(10.07, 4.54)
+texture = SubResource("CanvasTexture_1shtd")
+
+[node name="FullGlasses" type="Sprite2D" parent="AttachmentManager/GlassesSlot/Glasses"]
+position = Vector2(-8, -10)
+texture = SubResource("CanvasTexture_wb87j")
+offset = Vector2(10.59, 18.685)
