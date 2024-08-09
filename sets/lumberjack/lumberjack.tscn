@@ -1,0 +1,42 @@
+[gd_scene load_steps=12 format=3 uid="uid://dcx4n1ipml2vv"]
+
+[ext_resource type="Script" path="res://rendering/SpriteSet.cs" id="1_u1ayn"]
+[ext_resource type="Texture2D" uid="uid://cxc4og4fa2w0w" path="res://sets/lumberjack/idle.png" id="2_6hq1s"]
+[ext_resource type="Texture2D" uid="uid://bnwykrgscc4my" path="res://sets/lumberjack/talk.png" id="3_4nutv"]
+[ext_resource type="Texture2D" uid="uid://c4i8lsv4hsch1" path="res://sets/lumberjack/idle_n.png" id="3_bpuel"]
+[ext_resource type="Texture2D" uid="uid://c2084cmuluy8d" path="res://sets/lumberjack/blink.png" id="4_0471y"]
+[ext_resource type="Texture2D" uid="uid://b1ci1lek4vynn" path="res://sets/lumberjack/talkblink.png" id="5_pll4t"]
+[ext_resource type="PackedScene" uid="uid://bctl16q06n62" path="res://DefaultAttachments.tscn" id="6_tuc5v"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ahmnc"]
+diffuse_texture = ExtResource("2_6hq1s")
+normal_texture = ExtResource("3_bpuel")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_18pc1"]
+diffuse_texture = ExtResource("3_4nutv")
+normal_texture = ExtResource("3_bpuel")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hw4td"]
+diffuse_texture = ExtResource("4_0471y")
+normal_texture = ExtResource("3_bpuel")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cq77r"]
+diffuse_texture = ExtResource("5_pll4t")
+normal_texture = ExtResource("3_bpuel")
+
+[node name="Lumberjack" type="Node2D" node_paths=PackedStringArray("AttachmentManager")]
+script = ExtResource("1_u1ayn")
+SetName = "lumberjack"
+AttachmentManager = NodePath("AttachmentManager")
+Idle = SubResource("CanvasTexture_ahmnc")
+Talk = SubResource("CanvasTexture_18pc1")
+Blink = SubResource("CanvasTexture_hw4td")
+TalkBlink = SubResource("CanvasTexture_cq77r")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(10, -414)
+texture = ExtResource("2_6hq1s")
+
+[node name="AttachmentManager" parent="." instance=ExtResource("6_tuc5v")]
+position = Vector2(-4, 3)

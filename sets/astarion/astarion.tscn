@@ -1,0 +1,205 @@
+[gd_scene load_steps=44 format=3 uid="uid://ba7siv28vw1xs"]
+
+[ext_resource type="Script" path="res://rendering/SpriteSet.cs" id="1_kyf28"]
+[ext_resource type="Texture2D" uid="uid://sltabmgmwjvs" path="res://sets/astarion/idle.png" id="2_rnm5t"]
+[ext_resource type="Texture2D" uid="uid://djfn82fx432mm" path="res://sets/astarion/idle_n.png" id="3_kujvj"]
+[ext_resource type="Texture2D" uid="uid://dw3bh6qrrv020" path="res://sets/astarion/talk.png" id="4_p2dkw"]
+[ext_resource type="Texture2D" uid="uid://d2d47v1i2cmbv" path="res://sets/astarion/blink.png" id="5_1e0t8"]
+[ext_resource type="Texture2D" uid="uid://bpqqefdlyggua" path="res://sets/astarion/talkblink.png" id="6_wmeh2"]
+[ext_resource type="Script" path="res://rendering/AttachmentManager.cs" id="7_5fejr"]
+[ext_resource type="Texture2D" uid="uid://c6i4yf5cqndfm" path="res://gfx/blood1.png" id="7_57juu"]
+[ext_resource type="Texture2D" uid="uid://d2wfwh1elaega" path="res://gfx/blood2.png" id="8_3nokl"]
+[ext_resource type="Texture2D" uid="uid://drjgvj3hbbsr5" path="res://sets/leafshade/idle.png" id="8_uq5ek"]
+[ext_resource type="Script" path="res://rendering/AttachmentItem.cs" id="9_6uoaq"]
+[ext_resource type="Texture2D" uid="uid://dtygxy84xo6m0" path="res://gfx/partyhat.png" id="10_gc1u7"]
+[ext_resource type="Texture2D" uid="uid://e5c8aytlrdcd" path="res://gfx/partyhat_n.png" id="11_yijve"]
+[ext_resource type="Texture2D" uid="uid://bipc6hbi4nidg" path="res://sets/astarion/puppyears.png" id="12_4k1xq"]
+[ext_resource type="PackedScene" uid="uid://bk5tnmqs2gonn" path="res://attachments/halo.tscn" id="12_ohqht"]
+[ext_resource type="PackedScene" uid="uid://buv0k7q58h7ld" path="res://attachments/heart_head_band.tscn" id="13_wokpx"]
+[ext_resource type="Texture2D" uid="uid://b3k78mghwns2g" path="res://sets/astarion/astbunny.png" id="14_sqxa7"]
+[ext_resource type="PackedScene" uid="uid://rgqfdwvs3flo" path="res://gfx/eye_bandage.tscn" id="16_vbjpg"]
+[ext_resource type="PackedScene" uid="uid://5nx3ryobqt8m" path="res://attachments/freckles.tscn" id="18_18dnv"]
+[ext_resource type="Texture2D" uid="uid://bekxhp1h8xya7" path="res://sets/astarion/astbunny_n.png" id="18_xo0hh"]
+[ext_resource type="Texture2D" uid="uid://dcr53yi086dmk" path="res://gfx/glasses.png" id="19_8bxyn"]
+[ext_resource type="Texture2D" uid="uid://cfg8227umk7ni" path="res://gfx/glasses_n.png" id="20_7ttqe"]
+[ext_resource type="Texture2D" uid="uid://m21a5ilbqvwg" path="res://sets/astarion/astmush.png" id="20_kahqu"]
+[ext_resource type="PackedScene" uid="uid://45gs8k5madov" path="res://attachments/nerdy_glasses.tscn" id="21_4mfes"]
+[ext_resource type="Texture2D" uid="uid://3gmp2kfcbfsg" path="res://sets/mario/mustache_n.png" id="21_nqdpv"]
+[ext_resource type="PackedScene" uid="uid://cyxwta0l1wxus" path="res://attachments/rose_glasses.tscn" id="22_d481h"]
+[ext_resource type="PackedScene" uid="uid://btfd2421u6rbe" path="res://attachments/shades.tscn" id="23_kqgt0"]
+[ext_resource type="Texture2D" uid="uid://daorp4vni0c5q" path="res://gfx/kiss.png" id="24_b0vl6"]
+[ext_resource type="Texture2D" uid="uid://bb8ka7673urh2" path="res://sets/nude/glasses_n.png" id="25_hl6s7"]
+[ext_resource type="Texture2D" uid="uid://bp3sdx1o8fxax" path="res://gfx/nosering.png" id="26_6k4cd"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tf481"]
+diffuse_texture = ExtResource("2_rnm5t")
+normal_texture = ExtResource("3_kujvj")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hxr2o"]
+diffuse_texture = ExtResource("4_p2dkw")
+normal_texture = ExtResource("3_kujvj")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mrrr0"]
+diffuse_texture = ExtResource("5_1e0t8")
+normal_texture = ExtResource("3_kujvj")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rf0cs"]
+diffuse_texture = ExtResource("6_wmeh2")
+normal_texture = ExtResource("3_kujvj")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y3rio"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aamy3"]
+light_mode = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h0fed"]
+diffuse_texture = ExtResource("10_gc1u7")
+normal_texture = ExtResource("11_yijve")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nwly6"]
+diffuse_texture = ExtResource("12_4k1xq")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_60lrs"]
+diffuse_texture = ExtResource("14_sqxa7")
+normal_texture = ExtResource("18_xo0hh")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kbo48"]
+diffuse_texture = ExtResource("20_kahqu")
+normal_texture = ExtResource("21_nqdpv")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1shtd"]
+diffuse_texture = ExtResource("19_8bxyn")
+normal_texture = ExtResource("20_7ttqe")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_578by"]
+diffuse_texture = ExtResource("24_b0vl6")
+normal_texture = ExtResource("25_hl6s7")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_audp2"]
+diffuse_texture = ExtResource("26_6k4cd")
+
+[node name="Astarion" type="Node2D" node_paths=PackedStringArray("AttachmentManager")]
+script = ExtResource("1_kyf28")
+SetName = "astarion"
+AttachmentManager = NodePath("AttachmentManager")
+Idle = SubResource("CanvasTexture_tf481")
+Talk = SubResource("CanvasTexture_hxr2o")
+Blink = SubResource("CanvasTexture_mrrr0")
+TalkBlink = SubResource("CanvasTexture_rf0cs")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-4, -467)
+texture = ExtResource("2_rnm5t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+material = SubResource("CanvasItemMaterial_y3rio")
+position = Vector2(-1, 3)
+texture = ExtResource("7_57juu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite"]
+material = SubResource("CanvasItemMaterial_aamy3")
+position = Vector2(23, -1)
+texture = ExtResource("8_3nokl")
+
+[node name="AttachmentManager" type="Node2D" parent="."]
+script = ExtResource("7_5fejr")
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager"]
+visible = false
+position = Vector2(-1, -360)
+texture = ExtResource("8_uq5ek")
+
+[node name="Hat" type="Node2D" parent="AttachmentManager"]
+position = Vector2(0, -600)
+
+[node name="PartyHat" type="Node2D" parent="AttachmentManager/Hat"]
+position = Vector2(22.495, -71.57)
+script = ExtResource("9_6uoaq")
+AttachmentName = "partyhat"
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager/Hat/PartyHat"]
+texture = SubResource("CanvasTexture_h0fed")
+
+[node name="DogEars" type="Node2D" parent="AttachmentManager/Hat"]
+position = Vector2(13.015, 0)
+script = ExtResource("9_6uoaq")
+AttachmentName = "dogears"
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager/Hat/DogEars"]
+position = Vector2(-13.015, 117)
+texture = SubResource("CanvasTexture_nwly6")
+
+[node name="Halo" parent="AttachmentManager/Hat" instance=ExtResource("12_ohqht")]
+
+[node name="HeartHeadBand" parent="AttachmentManager/Hat" instance=ExtResource("13_wokpx")]
+position = Vector2(-1, 8)
+
+[node name="BunnyEars" type="Node2D" parent="AttachmentManager/Hat"]
+script = ExtResource("9_6uoaq")
+AttachmentName = "bunnyears"
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager/Hat/BunnyEars"]
+position = Vector2(-3, 134)
+texture = SubResource("CanvasTexture_60lrs")
+
+[node name="EyeBandageSlot" type="Node2D" parent="AttachmentManager"]
+
+[node name="EyeBandage" parent="AttachmentManager/EyeBandageSlot" instance=ExtResource("16_vbjpg")]
+position = Vector2(0, 2)
+
+[node name="MustacheSlot" type="Node2D" parent="AttachmentManager"]
+
+[node name="Mustache" type="Node2D" parent="AttachmentManager/MustacheSlot"]
+script = ExtResource("9_6uoaq")
+AttachmentName = "mustache"
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager/MustacheSlot/Mustache"]
+position = Vector2(-1, -469)
+texture = SubResource("CanvasTexture_kbo48")
+
+[node name="Freckles" type="Node2D" parent="AttachmentManager"]
+
+[node name="Freckles" parent="AttachmentManager/Freckles" instance=ExtResource("18_18dnv")]
+
+[node name="GlassesSlot" type="Node2D" parent="AttachmentManager"]
+
+[node name="Glasses" type="Node2D" parent="AttachmentManager/GlassesSlot"]
+position = Vector2(-2, -409)
+script = ExtResource("9_6uoaq")
+AttachmentName = "glasses"
+
+[node name="PartialGlasses" type="Sprite2D" parent="AttachmentManager/GlassesSlot/Glasses"]
+position = Vector2(10.07, 4.54)
+texture = SubResource("CanvasTexture_1shtd")
+
+[node name="NerdyGlasses" parent="AttachmentManager/GlassesSlot" instance=ExtResource("21_4mfes")]
+position = Vector2(-3, -2)
+
+[node name="RoseGlasses" parent="AttachmentManager/GlassesSlot" instance=ExtResource("22_d481h")]
+position = Vector2(1, 11)
+
+[node name="Shades" parent="AttachmentManager/GlassesSlot" instance=ExtResource("23_kqgt0")]
+position = Vector2(-2, 4)
+
+[node name="Cheeks" type="Node2D" parent="AttachmentManager"]
+
+[node name="Kiss" type="Node2D" parent="AttachmentManager/Cheeks"]
+script = ExtResource("9_6uoaq")
+AttachmentName = "kiss"
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager/Cheeks/Kiss"]
+position = Vector2(14, -415)
+texture = SubResource("CanvasTexture_578by")
+
+[node name="NoseRingSlot" type="Node2D" parent="AttachmentManager"]
+visible = false
+
+[node name="NoseRing" type="Node2D" parent="AttachmentManager/NoseRingSlot"]
+position = Vector2(19, -353)
+script = ExtResource("9_6uoaq")
+AttachmentName = "nosering"
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager/NoseRingSlot/NoseRing"]
+texture = SubResource("CanvasTexture_audp2")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=12 format=3 uid="uid://b5df0g203ffc1"]
+
+[ext_resource type="Script" path="res://rendering/SpriteSet.cs" id="1_ijm65"]
+[ext_resource type="Texture2D" uid="uid://daxdrbrecp68m" path="res://sets/jedi/idle.png" id="2_qltxw"]
+[ext_resource type="Texture2D" uid="uid://bc14q7r4lfmy2" path="res://sets/jedi/talk.png" id="3_8k0ll"]
+[ext_resource type="Texture2D" uid="uid://d18adeqkxoedw" path="res://sets/jedi/idle_n.png" id="3_llhtp"]
+[ext_resource type="Texture2D" uid="uid://04iwtevvhfnh" path="res://sets/jedi/blink.png" id="4_aa8fl"]
+[ext_resource type="Texture2D" uid="uid://svx5f76p288u" path="res://sets/jedi/talkblink.png" id="5_yebb3"]
+[ext_resource type="PackedScene" uid="uid://bctl16q06n62" path="res://DefaultAttachments.tscn" id="6_nuuve"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_atiuu"]
+diffuse_texture = ExtResource("2_qltxw")
+normal_texture = ExtResource("3_llhtp")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_k3r8x"]
+diffuse_texture = ExtResource("3_8k0ll")
+normal_texture = ExtResource("3_llhtp")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a1kud"]
+diffuse_texture = ExtResource("4_aa8fl")
+normal_texture = ExtResource("3_llhtp")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4taa1"]
+diffuse_texture = ExtResource("5_yebb3")
+normal_texture = ExtResource("3_llhtp")
+
+[node name="Jedi" type="Node2D" node_paths=PackedStringArray("AttachmentManager", "Sprite")]
+script = ExtResource("1_ijm65")
+SetName = "jedi"
+AttachmentManager = NodePath("AttachmentManager")
+Idle = SubResource("CanvasTexture_atiuu")
+Talk = SubResource("CanvasTexture_k3r8x")
+Blink = SubResource("CanvasTexture_a1kud")
+TalkBlink = SubResource("CanvasTexture_4taa1")
+Sprite = NodePath("Sprite")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -416)
+texture = ExtResource("2_qltxw")
+
+[node name="AttachmentManager" parent="." instance=ExtResource("6_nuuve")]
+position = Vector2(-4, -11)

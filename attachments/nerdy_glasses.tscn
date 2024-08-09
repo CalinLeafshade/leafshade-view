@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://45gs8k5madov"]
+
+[ext_resource type="Script" path="res://rendering/AttachmentItem.cs" id="1_nedqr"]
+[ext_resource type="Texture2D" uid="uid://c38xsc1j0rcd2" path="res://gfx/GeekGlasses.png" id="2_ggr60"]
+[ext_resource type="Texture2D" uid="uid://rxw4ydqg83e4" path="res://sets/ghost/idle_n.png" id="3_8g6n7"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tdxoq"]
+diffuse_texture = ExtResource("2_ggr60")
+normal_texture = ExtResource("3_8g6n7")
+
+[node name="NerdyGlasses" type="Node2D"]
+script = ExtResource("1_nedqr")
+AttachmentName = "nerdglasses"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(14, -416)
+texture = SubResource("CanvasTexture_tdxoq")

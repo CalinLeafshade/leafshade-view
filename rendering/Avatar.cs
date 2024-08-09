@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Godot;
 using static Leafshade.SpriteSet;
 
@@ -10,6 +12,8 @@ public partial class Avatar : Node2D
 	[Export]
 	public AttachmentManager Attachments { get; set; }
 
+	private Dictionary<string, DateTime> attachmentActivations = new Dictionary<string, DateTime>();
+
 	private bool isTalking;
 	private bool isBlinking;
 	private RandomNumberGenerator rng = new();
@@ -19,6 +23,8 @@ public partial class Avatar : Node2D
 	private ulong lastSpoke;
 	private ulong lastBlink;
 	private double blinkTimer;
+
+	private Timer nudeTimer;
 
 	[Signal]
 	public delegate void CostumeChangedEventHandler(string newCostume);
@@ -36,18 +42,72 @@ public partial class Avatar : Node2D
 
 	public ulong TimeSinceBlinking => Time.GetTicksMsec() - lastBlink;
 
-	public SpriteState CurrentState => isTalking && isBlinking ? SpriteState.TalkBlink :
-		isTalking ? SpriteState.Talk :
+	public SpriteState CurrentState => IsTalking && isBlinking ? SpriteState.TalkBlink :
+		IsTalking ? SpriteState.Talk :
 		isBlinking ? SpriteState.Blink :
 		SpriteState.Idle;
 
 	private SetSwitcher Sprite;
 
+	private string oldSet;
+
 	public string CurrentSprite => Sprite.ActiveSet;
+
+	public bool IsTalking
+	{
+		get => isTalking; set
+		{
+			GD.Print(value);
+			isTalking = value;
+		}
+	}
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		nudeTimer = new Timer
+		{
+			WaitTime = 15
+		};
+		AddChild(nudeTimer);
+		nudeTimer.Timeout += () =>
+		{
+			GD.Print(oldSet);
+			GD.Print(Sprite.ActiveSet);
+			if (Sprite.ActiveSet == "nude")
+			{
+				SetCostume(oldSet);
+			}
+		};
 		Sprite = GetNode<SetSwitcher>("%SetSwitcher");
+	}
+
+	public IEnumerable<string> GetAvailableCostumes()
+	{
+		return Sprite.GetSets().Select(x => x.SetName);
+	}
+
+	public IEnumerable<string> GetAvailableAttachments()
+	{
+		return Sprite.GetSets().SelectMany(x => x.GetAvailableAttachments()).Distinct();
+	}
+
+	private void UpdateAttachments()
+	{
+		var set = Sprite.GetActiveSet();
+		foreach (var kvp in attachmentActivations.OrderBy(x => x.Value))
+		{
+			var dif = (DateTime.Now - kvp.Value).TotalSeconds;
+
+			if (dif > 120)
+			{
+				set.DisableAttachment(kvp.Key);
+			}
+			else
+			{
+				set.EnableAttachment(kvp.Key);
+			}
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -58,7 +118,7 @@ public partial class Avatar : Node2D
 
 		float sineAmplitude = 20f;
 
-		Vector2 sineOffset = new(Mathf.Sin(time * 0.2f) * 10f, (Mathf.Sin(time * 0.3f) * sineAmplitude) + sineAmplitude);
+		Vector2 sineOffset = new(Mathf.Sin(time * 0.3f) * 10f, (Mathf.Sin(time * 0.3f) * sineAmplitude) + sineAmplitude);
 		Vector2 bounceOffset = new(0, bounceSpring.Value);
 		Vector2 bounceMargin = new(0, 30f);
 
@@ -84,27 +144,41 @@ public partial class Avatar : Node2D
 			Blink();
 		}
 
+		Modulate = new Color(1f, 1f, 1f, set.MaximumOpacity);
+
+		UpdateAttachments();
+
 	}
 
 	public void EnableAttachment(string name)
 	{
-		Attachments.EnableAttachment(name);
+
+		attachmentActivations[name] = DateTime.Now;
+
 	}
 
 	public void SetCostume(string name)
 	{
-		string oldSet = Sprite.ActiveSet;
+		if (name == Sprite.ActiveSet)
+		{
+			return;
+		}
+
+		oldSet = Sprite.ActiveSet;
 		Sprite.ActiveSet = name;
 
-		if (oldSet != name)
+		if (name == "nude")
 		{
-			EmitSignal(SignalName.CostumeChanged, name);
+			nudeTimer.Start();
 		}
+
+		EmitSignal(SignalName.CostumeChanged, name);
+
 	}
 
 	public void Blink()
 	{
-		blinkTimer = rng.RandfRange(1f, 4f);
+		blinkTimer = rng.RandfRange(3f, 8f);
 		lastBlink = Time.GetTicksMsec();
 		isBlinking = true;
 	}
@@ -120,13 +194,14 @@ public partial class Avatar : Node2D
 
 	public void StartTalking(float strength)
 	{
-		isTalking = true;
+		GD.Print("Talk");
+		IsTalking = true;
 		Bounce(strength);
 		lastSpoke = Time.GetTicksMsec();
 	}
 
 	public void StopTalking()
 	{
-		isTalking = false;
+		IsTalking = false;
 	}
 }

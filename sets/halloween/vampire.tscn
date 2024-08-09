@@ -1,0 +1,173 @@
+[gd_scene load_steps=39 format=3 uid="uid://qblgn0g51pdt"]
+
+[ext_resource type="Script" path="res://rendering/SpriteSet.cs" id="1_kb0q8"]
+[ext_resource type="Texture2D" uid="uid://iaur82hbpmgh" path="res://sets/halloween/idle.png" id="2_6w6km"]
+[ext_resource type="Texture2D" uid="uid://cdebpa5aea7oa" path="res://sets/halloween/idle_n.png" id="3_x6nlh"]
+[ext_resource type="Texture2D" uid="uid://tfidp72ssly8" path="res://sets/halloween/talk.png" id="4_vc1xx"]
+[ext_resource type="Texture2D" uid="uid://b2dds034s86xa" path="res://sets/halloween/blink.png" id="5_tql0r"]
+[ext_resource type="Texture2D" uid="uid://bk5nd7j0poqih" path="res://sets/halloween/talkblink.png" id="6_moyqu"]
+[ext_resource type="Script" path="res://rendering/AttachmentManager.cs" id="7_kke0u"]
+[ext_resource type="Texture2D" uid="uid://drjgvj3hbbsr5" path="res://sets/leafshade/idle.png" id="8_4o4cy"]
+[ext_resource type="Script" path="res://rendering/AttachmentItem.cs" id="9_xo88d"]
+[ext_resource type="Texture2D" uid="uid://dtygxy84xo6m0" path="res://gfx/partyhat.png" id="10_qq7o1"]
+[ext_resource type="Texture2D" uid="uid://e5c8aytlrdcd" path="res://gfx/partyhat_n.png" id="11_rwlmq"]
+[ext_resource type="Texture2D" uid="uid://bm4qogo1dphro" path="res://gfx/ears.png" id="12_vc1i5"]
+[ext_resource type="Texture2D" uid="uid://d4kn4p6r16t40" path="res://gfx/ears_n.png" id="13_5y46w"]
+[ext_resource type="PackedScene" uid="uid://bk5tnmqs2gonn" path="res://attachments/halo.tscn" id="14_5fi1m"]
+[ext_resource type="PackedScene" uid="uid://buv0k7q58h7ld" path="res://attachments/heart_head_band.tscn" id="15_iqdvd"]
+[ext_resource type="Texture2D" uid="uid://mwwp1k8g80pc" path="res://sets/halloween/vampbunnyears.png" id="16_elwjo"]
+[ext_resource type="PackedScene" uid="uid://5nx3ryobqt8m" path="res://attachments/freckles.tscn" id="17_00nnr"]
+[ext_resource type="Texture2D" uid="uid://bldf7c8s25ory" path="res://sets/leafshade/bunny_n.png" id="17_pv1em"]
+[ext_resource type="PackedScene" uid="uid://rgqfdwvs3flo" path="res://gfx/eye_bandage.tscn" id="18_0tjco"]
+[ext_resource type="Texture2D" uid="uid://dcr53yi086dmk" path="res://gfx/glasses.png" id="18_bcfrt"]
+[ext_resource type="Texture2D" uid="uid://cfg8227umk7ni" path="res://gfx/glasses_n.png" id="19_s4cia"]
+[ext_resource type="PackedScene" uid="uid://45gs8k5madov" path="res://attachments/nerdy_glasses.tscn" id="20_8lkaw"]
+[ext_resource type="PackedScene" uid="uid://cyxwta0l1wxus" path="res://attachments/rose_glasses.tscn" id="21_02gkx"]
+[ext_resource type="Texture2D" uid="uid://daorp4vni0c5q" path="res://gfx/kiss.png" id="22_het2o"]
+[ext_resource type="Texture2D" uid="uid://bb8ka7673urh2" path="res://sets/nude/glasses_n.png" id="23_v0w85"]
+[ext_resource type="Texture2D" uid="uid://dy4gbl7skjeir" path="res://sets/neo/vampshades.png" id="24_5eeff"]
+[ext_resource type="Texture2D" uid="uid://cic4q10pxvu5j" path="res://sets/neo/shades_n.png" id="25_v84k4"]
+[ext_resource type="PackedScene" uid="uid://d1ddk7ikn87ux" path="res://attachments/mustache.tscn" id="26_nnap3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_s2p3l"]
+diffuse_texture = ExtResource("2_6w6km")
+normal_texture = ExtResource("3_x6nlh")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7vfli"]
+diffuse_texture = ExtResource("4_vc1xx")
+normal_texture = ExtResource("3_x6nlh")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hp0qd"]
+diffuse_texture = ExtResource("5_tql0r")
+normal_texture = ExtResource("3_x6nlh")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_02oyp"]
+diffuse_texture = ExtResource("6_moyqu")
+normal_texture = ExtResource("3_x6nlh")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h0fed"]
+diffuse_texture = ExtResource("10_qq7o1")
+normal_texture = ExtResource("11_rwlmq")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fwk8h"]
+diffuse_texture = ExtResource("12_vc1i5")
+normal_texture = ExtResource("13_5y46w")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_n7rxi"]
+diffuse_texture = ExtResource("16_elwjo")
+normal_texture = ExtResource("17_pv1em")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1shtd"]
+diffuse_texture = ExtResource("18_bcfrt")
+normal_texture = ExtResource("19_s4cia")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h57c6"]
+diffuse_texture = ExtResource("24_5eeff")
+normal_texture = ExtResource("25_v84k4")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_578by"]
+diffuse_texture = ExtResource("22_het2o")
+normal_texture = ExtResource("23_v0w85")
+
+[node name="Vampire" type="Node2D" node_paths=PackedStringArray("AttachmentManager")]
+script = ExtResource("1_kb0q8")
+SetName = "vampire"
+AttachmentManager = NodePath("AttachmentManager")
+Idle = SubResource("CanvasTexture_s2p3l")
+Talk = SubResource("CanvasTexture_7vfli")
+Blink = SubResource("CanvasTexture_hp0qd")
+TalkBlink = SubResource("CanvasTexture_02oyp")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -360)
+texture = ExtResource("2_6w6km")
+
+[node name="AttachmentManager" type="Node2D" parent="."]
+script = ExtResource("7_kke0u")
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager"]
+visible = false
+position = Vector2(-1, -362)
+texture = ExtResource("8_4o4cy")
+
+[node name="Hat" type="Node2D" parent="AttachmentManager"]
+position = Vector2(0, -600)
+
+[node name="PartyHat" type="Node2D" parent="AttachmentManager/Hat"]
+position = Vector2(22.495, -71.57)
+script = ExtResource("9_xo88d")
+AttachmentName = "partyhat"
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager/Hat/PartyHat"]
+texture = SubResource("CanvasTexture_h0fed")
+
+[node name="DogEars" type="Node2D" parent="AttachmentManager/Hat"]
+position = Vector2(13.015, 0)
+script = ExtResource("9_xo88d")
+AttachmentName = "dogears"
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager/Hat/DogEars"]
+position = Vector2(0, 185)
+texture = SubResource("CanvasTexture_fwk8h")
+
+[node name="Halo" parent="AttachmentManager/Hat" instance=ExtResource("14_5fi1m")]
+
+[node name="HeartHeadBand" parent="AttachmentManager/Hat" instance=ExtResource("15_iqdvd")]
+position = Vector2(-1, 8)
+
+[node name="BunnyEars" type="Node2D" parent="AttachmentManager/Hat"]
+script = ExtResource("9_xo88d")
+AttachmentName = "bunnyears"
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager/Hat/BunnyEars"]
+position = Vector2(14, 137)
+texture = SubResource("CanvasTexture_n7rxi")
+
+[node name="EyeBandageSlot" type="Node2D" parent="AttachmentManager"]
+
+[node name="EyeBandage" parent="AttachmentManager/EyeBandageSlot" instance=ExtResource("18_0tjco")]
+position = Vector2(0, 1)
+
+[node name="Freckles" type="Node2D" parent="AttachmentManager"]
+
+[node name="Freckles" parent="AttachmentManager/Freckles" instance=ExtResource("17_00nnr")]
+
+[node name="GlassesSlot" type="Node2D" parent="AttachmentManager"]
+
+[node name="Glasses" type="Node2D" parent="AttachmentManager/GlassesSlot"]
+position = Vector2(0, -410)
+script = ExtResource("9_xo88d")
+AttachmentName = "glasses"
+
+[node name="PartialGlasses" type="Sprite2D" parent="AttachmentManager/GlassesSlot/Glasses"]
+position = Vector2(10.07, 4.54)
+texture = SubResource("CanvasTexture_1shtd")
+
+[node name="NerdyGlasses" parent="AttachmentManager/GlassesSlot" instance=ExtResource("20_8lkaw")]
+position = Vector2(-2, -6)
+
+[node name="RoseGlasses" parent="AttachmentManager/GlassesSlot" instance=ExtResource("21_02gkx")]
+position = Vector2(2, 5)
+
+[node name="Shades" type="Node2D" parent="AttachmentManager/GlassesSlot"]
+script = ExtResource("9_xo88d")
+AttachmentName = "shades"
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager/GlassesSlot/Shades"]
+position = Vector2(-73, -466)
+texture = SubResource("CanvasTexture_h57c6")
+
+[node name="MustacheSlot" type="Node2D" parent="AttachmentManager"]
+
+[node name="Mustache" parent="AttachmentManager/MustacheSlot" instance=ExtResource("26_nnap3")]
+
+[node name="Cheeks" type="Node2D" parent="AttachmentManager"]
+
+[node name="Kiss" type="Node2D" parent="AttachmentManager/Cheeks"]
+script = ExtResource("9_xo88d")
+AttachmentName = "kiss"
+
+[node name="Sprite2D" type="Sprite2D" parent="AttachmentManager/Cheeks/Kiss"]
+position = Vector2(14, -415)
+texture = SubResource("CanvasTexture_578by")

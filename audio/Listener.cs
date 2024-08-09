@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Godot;
+using Leafshade;
 
 public partial class Listener : Node
 {
@@ -29,6 +30,9 @@ public partial class Listener : Node
 
     [Export]
     public ulong TalkingHold { get; set; } = 100;
+
+    [Export]
+    public Avatar Avatar {get; set;}
 
     public bool IsTalking { get; private set; }
 
@@ -103,6 +107,22 @@ public partial class Listener : Node
         inputMenu.Text = AudioServer.InputDevice;
 
         CallDeferred("Start");
+
+        if (Avatar != null) {
+            foreach(var set in Avatar.GetAvailableCostumes()) {
+                var b = new Button();
+                b.Text = set;
+                b.Pressed += () => Avatar.SetCostume(set);
+                GetNode("%CostumeButtons").AddChild(b);
+            }
+
+            foreach(var set in Avatar.GetAvailableAttachments()) {
+                var b = new Button();
+                b.Text = set;
+                b.Pressed += () => Avatar.EnableAttachment(set);
+                GetNode("%CostumeButtons").AddChild(b);
+            }
+        }
 
     }
 

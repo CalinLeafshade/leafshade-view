@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://5nx3ryobqt8m"]
+
+[ext_resource type="Script" path="res://rendering/AttachmentItem.cs" id="1_s0ayh"]
+[ext_resource type="Texture2D" uid="uid://oc4jrw76ngqm" path="res://gfx/Freckles.png" id="2_x4bfo"]
+[ext_resource type="Texture2D" uid="uid://rxw4ydqg83e4" path="res://sets/ghost/idle_n.png" id="3_mc5s4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pgcy2"]
+diffuse_texture = ExtResource("2_x4bfo")
+normal_texture = ExtResource("3_mc5s4")
+
+[node name="Freckles" type="Node2D"]
+position = Vector2(6, -429)
+script = ExtResource("1_s0ayh")
+AttachmentName = "freckles"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.713726)
+position = Vector2(8, 3)
+texture = SubResource("CanvasTexture_pgcy2")

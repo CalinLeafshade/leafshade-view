@@ -1,0 +1,42 @@
+[gd_scene load_steps=13 format=3 uid="uid://duj7xb81uvs3c"]
+
+[ext_resource type="Script" path="res://rendering/SpriteSet.cs" id="1_2o1kh"]
+[ext_resource type="Texture2D" uid="uid://drjgvj3hbbsr5" path="res://sets/leafshade/idle.png" id="2_rygmb"]
+[ext_resource type="Texture2D" uid="uid://b54uvepjhweju" path="res://sets/leafshade/idle_n.png" id="3_p58rk"]
+[ext_resource type="Texture2D" uid="uid://i45ku8uryh6c" path="res://sets/leafshade/talk.png" id="4_7pdvh"]
+[ext_resource type="Texture2D" uid="uid://dntpc12tokfqd" path="res://sets/leafshade/blink.png" id="5_fddns"]
+[ext_resource type="Texture2D" uid="uid://dkug2tfs44nhg" path="res://sets/leafshade/talkblink.png" id="6_2wo1v"]
+[ext_resource type="Texture2D" uid="uid://cxhoinobxwhu5" path="res://sets/pirate/idle.png" id="7_b70cg"]
+[ext_resource type="PackedScene" uid="uid://bctl16q06n62" path="res://DefaultAttachments.tscn" id="8_1n012"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_s7lq2"]
+diffuse_texture = ExtResource("2_rygmb")
+normal_texture = ExtResource("3_p58rk")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0pay3"]
+diffuse_texture = ExtResource("4_7pdvh")
+normal_texture = ExtResource("3_p58rk")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kewic"]
+diffuse_texture = ExtResource("5_fddns")
+normal_texture = ExtResource("3_p58rk")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0u4ew"]
+diffuse_texture = ExtResource("6_2wo1v")
+normal_texture = ExtResource("3_p58rk")
+
+[node name="Leafshade" type="Node2D" node_paths=PackedStringArray("AttachmentManager")]
+script = ExtResource("1_2o1kh")
+SetName = "leafshade"
+AttachmentManager = NodePath("AttachmentManager")
+Idle = SubResource("CanvasTexture_s7lq2")
+Talk = SubResource("CanvasTexture_0pay3")
+Blink = SubResource("CanvasTexture_kewic")
+TalkBlink = SubResource("CanvasTexture_0u4ew")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -360)
+texture = ExtResource("7_b70cg")
+
+[node name="AttachmentManager" parent="." instance=ExtResource("8_1n012")]

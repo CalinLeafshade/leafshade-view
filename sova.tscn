@@ -1,0 +1,60 @@
+[gd_scene load_steps=16 format=3 uid="uid://dy3kji1grr5ma"]
+
+[ext_resource type="Script" path="res://rendering/SpriteSet.cs" id="1_jtksr"]
+[ext_resource type="Texture2D" uid="uid://cqrscpd6fdpcb" path="res://sets/sova/idle.png" id="2_va4ix"]
+[ext_resource type="Texture2D" uid="uid://bwocc8e8n5hmm" path="res://sets/sova/idle_n.png" id="3_hqyee"]
+[ext_resource type="Texture2D" uid="uid://bt3qutx8itwmk" path="res://sets/sova/talk.png" id="4_bh2hx"]
+[ext_resource type="Texture2D" uid="uid://5w256nmylg0x" path="res://sets/sova/blink.png" id="5_pgvfp"]
+[ext_resource type="Texture2D" uid="uid://djpnvhyhvmeqb" path="res://sets/sova/talkblink.png" id="6_wgrnh"]
+[ext_resource type="Texture2D" uid="uid://dhincnwhxcjo4" path="res://sets/sova/eyeblur.png" id="7_48tar"]
+[ext_resource type="PackedScene" uid="uid://bctl16q06n62" path="res://DefaultAttachments.tscn" id="7_uejat"]
+[ext_resource type="Script" path="res://EyeGlow.cs" id="8_d3vs5"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2vjc3"]
+diffuse_texture = ExtResource("2_va4ix")
+normal_texture = ExtResource("3_hqyee")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_55jac"]
+diffuse_texture = ExtResource("4_bh2hx")
+normal_texture = ExtResource("3_hqyee")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ddq2k"]
+diffuse_texture = ExtResource("5_pgvfp")
+normal_texture = ExtResource("3_hqyee")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jmswn"]
+diffuse_texture = ExtResource("6_wgrnh")
+normal_texture = ExtResource("3_hqyee")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vtir5"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qi8rj"]
+diffuse_texture = ExtResource("7_48tar")
+
+[node name="Sova" type="Node2D" node_paths=PackedStringArray("AttachmentManager", "Sprite")]
+script = ExtResource("1_jtksr")
+SetName = "sova"
+AttachmentManager = NodePath("AttachmentManager")
+Idle = SubResource("CanvasTexture_2vjc3")
+Talk = SubResource("CanvasTexture_55jac")
+Blink = SubResource("CanvasTexture_ddq2k")
+TalkBlink = SubResource("CanvasTexture_jmswn")
+Sprite = NodePath("Sprite")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(11, -439)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_va4ix")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite" node_paths=PackedStringArray("SpriteSet")]
+self_modulate = Color(1, 1, 1, 0.85098)
+material = SubResource("CanvasItemMaterial_vtir5")
+position = Vector2(-52.381, 29.5238)
+texture = SubResource("CanvasTexture_qi8rj")
+script = ExtResource("8_d3vs5")
+SpriteSet = NodePath("../..")
+
+[node name="AttachmentManager" parent="." instance=ExtResource("7_uejat")]

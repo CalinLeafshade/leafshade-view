@@ -1,0 +1,42 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7wybojq76njo"]
+
+[ext_resource type="Script" path="res://rendering/SpriteSet.cs" id="1_4x0wj"]
+[ext_resource type="Texture2D" uid="uid://doi27ecp1wqqa" path="res://sets/legolas/idle.png" id="2_m0f3w"]
+[ext_resource type="Texture2D" uid="uid://d0vqvnklvok11" path="res://sets/legolas/idle_n.png" id="3_4sg1i"]
+[ext_resource type="Texture2D" uid="uid://dw7hj4acnpeiy" path="res://sets/legolas/talk.png" id="4_ni1nv"]
+[ext_resource type="Texture2D" uid="uid://d0bjhdsqyhq4a" path="res://sets/legolas/blink.png" id="5_hnhwa"]
+[ext_resource type="Texture2D" uid="uid://cwqdbhijlb048" path="res://sets/legolas/talkblink.png" id="6_7mplt"]
+[ext_resource type="PackedScene" uid="uid://bctl16q06n62" path="res://DefaultAttachments.tscn" id="7_qnj4a"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_khd4n"]
+diffuse_texture = ExtResource("2_m0f3w")
+normal_texture = ExtResource("3_4sg1i")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nys4r"]
+diffuse_texture = ExtResource("4_ni1nv")
+normal_texture = ExtResource("3_4sg1i")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rccny"]
+diffuse_texture = ExtResource("5_hnhwa")
+normal_texture = ExtResource("3_4sg1i")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ckae7"]
+diffuse_texture = ExtResource("6_7mplt")
+normal_texture = ExtResource("3_4sg1i")
+
+[node name="Legolas" type="Node2D" node_paths=PackedStringArray("AttachmentManager")]
+script = ExtResource("1_4x0wj")
+SetName = "legolas"
+AttachmentManager = NodePath("AttachmentManager")
+Idle = SubResource("CanvasTexture_khd4n")
+Talk = SubResource("CanvasTexture_nys4r")
+Blink = SubResource("CanvasTexture_rccny")
+TalkBlink = SubResource("CanvasTexture_ckae7")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-4, -469)
+texture = ExtResource("2_m0f3w")
+
+[node name="AttachmentManager" parent="." instance=ExtResource("7_qnj4a")]
+position = Vector2(-1, 0)

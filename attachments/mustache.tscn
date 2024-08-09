@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1ddk7ikn87ux"]
+
+[ext_resource type="Script" path="res://rendering/AttachmentItem.cs" id="1_4ggl5"]
+[ext_resource type="Texture2D" uid="uid://boikfn1hs2um1" path="res://sets/mario/mustache.png" id="2_w4qlc"]
+[ext_resource type="Texture2D" uid="uid://3gmp2kfcbfsg" path="res://sets/mario/mustache_n.png" id="3_xm4f1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_06ir2"]
+diffuse_texture = ExtResource("2_w4qlc")
+normal_texture = ExtResource("3_xm4f1")
+
+[node name="Mustache" type="Node2D"]
+script = ExtResource("1_4ggl5")
+AttachmentName = "mustache"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -469)
+texture = SubResource("CanvasTexture_06ir2")

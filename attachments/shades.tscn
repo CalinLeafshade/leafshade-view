@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://btfd2421u6rbe"]
+
+[ext_resource type="Script" path="res://rendering/AttachmentItem.cs" id="1_f8rnx"]
+[ext_resource type="Texture2D" uid="uid://dmjtwxi4piafx" path="res://sets/neo/shades.png" id="2_ofcol"]
+[ext_resource type="Texture2D" uid="uid://cic4q10pxvu5j" path="res://sets/neo/shades_n.png" id="3_r0cai"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wi48p"]
+diffuse_texture = ExtResource("2_ofcol")
+normal_texture = ExtResource("3_r0cai")
+
+[node name="Shades" type="Node2D"]
+script = ExtResource("1_f8rnx")
+AttachmentName = "shades"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, -472)
+texture = SubResource("CanvasTexture_wi48p")

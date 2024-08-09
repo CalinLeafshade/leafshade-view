@@ -221,14 +221,14 @@ alpha_curve = SubResource("CurveTexture_t13qx")
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_615iq")
 
-[node name="Listener" parent="." instance=ExtResource("2_81fbf")]
-top_level = true
-Threshold = 0.25
-
 [node name="Avatar" parent="." instance=ExtResource("2_s1fjm")]
 unique_name_in_owner = true
 BounceStrength = 1000.0
 BounceCooldown = 2000
+
+[node name="Listener" parent="." node_paths=PackedStringArray("Avatar") instance=ExtResource("2_81fbf")]
+top_level = true
+Avatar = NodePath("../Avatar")
 
 [node name="TransitionManager" parent="." instance=ExtResource("4_5ftvd")]
 unique_name_in_owner = true
@@ -313,9 +313,9 @@ process_material = SubResource("ParticleProcessMaterial_6wopl")
 texture = ExtResource("8_47wjj")
 lifetime = 1.2
 
+[connection signal="CostumeChanged" from="Avatar" to="TransitionManager" method="OnTransition"]
 [connection signal="StartedTalking" from="Listener" to="Avatar" method="StartTalking"]
 [connection signal="StoppedTalking" from="Listener" to="Avatar" method="StopTalking"]
-[connection signal="CostumeChanged" from="Avatar" to="TransitionManager" method="OnTransition"]
 [connection signal="Attachment" from="HttpListenerNode" to="Avatar" method="EnableAttachment"]
 [connection signal="CostumeChange" from="HttpListenerNode" to="Avatar" method="SetCostume"]
 [connection signal="LightingEffect" from="HttpListenerNode" to="Lighting" method="Effect"]

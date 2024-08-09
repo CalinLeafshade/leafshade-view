@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk5tnmqs2gonn"]
+
+[ext_resource type="Script" path="res://attachments/Halo.cs" id="1_hbgia"]
+[ext_resource type="Texture2D" uid="uid://cpygdgrciiltf" path="res://gfx/Halo.png" id="2_1lwun"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ukvon"]
+diffuse_texture = ExtResource("2_1lwun")
+
+[node name="Halo" type="Node2D"]
+script = ExtResource("1_hbgia")
+AttachmentName = "halo"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(29, 212)
+texture = SubResource("CanvasTexture_ukvon")

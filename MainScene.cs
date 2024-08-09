@@ -56,13 +56,41 @@ public partial class MainScene : Node2D
 			{
 				avatar.SetCostume("cowboy");
 			}
+			else if (key.Keycode == Key.Key6)
+			{
+				avatar.SetCostume("demon");
+			}
+			else if (key.Keycode == Key.Key7)
+			{
+				avatar.SetCostume("nude");
+			}
 			else if (key.Keycode == Key.Key0)
 			{
 				avatar.EnableAttachment("glasses");
 			}
 			else if (key.Keycode == Key.Key9)
 			{
+				weather.Rain();
+			}
+			else if (key.Keycode == Key.K)
+			{
+				avatar.EnableAttachment("kiss");
+			}
+			else if (key.Keycode == Key.P)
+			{
 				avatar.EnableAttachment("partyhat");
+			}
+			else if (key.Keycode == Key.L)
+			{
+				avatar.SetCostume("pirate");
+			}
+			else if (key.Keycode == Key.B)
+			{
+				avatar.SetCostume("bear");
+			}
+			else if (key.Keycode == Key.G)
+			{
+				avatar.SetCostume("ghost");
 			}
 			else if (key.Keycode == Key.Key8)
 			{

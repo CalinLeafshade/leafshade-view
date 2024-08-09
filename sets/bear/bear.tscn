@@ -1,0 +1,43 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2eplh1fbcdog"]
+
+[ext_resource type="Script" path="res://rendering/SpriteSet.cs" id="1_ihtun"]
+[ext_resource type="Texture2D" uid="uid://biy77mxj1ud84" path="res://sets/bear/idle.png" id="2_mvwbp"]
+[ext_resource type="Texture2D" uid="uid://cr45u717yskqp" path="res://sets/bear/idle_n.png" id="3_swoax"]
+[ext_resource type="Texture2D" uid="uid://evseytjrgt1v" path="res://sets/bear/talk.png" id="4_vl1bi"]
+[ext_resource type="Texture2D" uid="uid://cb4oy2xqw8at3" path="res://sets/bear/blink.png" id="5_dyx28"]
+[ext_resource type="Texture2D" uid="uid://dapmq838s6f4t" path="res://sets/bear/talkblink.png" id="6_nw0ry"]
+[ext_resource type="PackedScene" uid="uid://bctl16q06n62" path="res://DefaultAttachments.tscn" id="7_bvmdg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_w0m0q"]
+diffuse_texture = ExtResource("2_mvwbp")
+normal_texture = ExtResource("3_swoax")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3jn0w"]
+diffuse_texture = ExtResource("4_vl1bi")
+normal_texture = ExtResource("3_swoax")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hkanp"]
+diffuse_texture = ExtResource("5_dyx28")
+normal_texture = ExtResource("3_swoax")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ealrd"]
+diffuse_texture = ExtResource("6_nw0ry")
+normal_texture = ExtResource("3_swoax")
+
+[node name="Bear" type="Node2D" node_paths=PackedStringArray("AttachmentManager")]
+position = Vector2(13, -63)
+script = ExtResource("1_ihtun")
+SetName = "bear"
+AttachmentManager = NodePath("AttachmentManager")
+Idle = SubResource("CanvasTexture_w0m0q")
+Talk = SubResource("CanvasTexture_3jn0w")
+Blink = SubResource("CanvasTexture_hkanp")
+TalkBlink = SubResource("CanvasTexture_ealrd")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-13, -353)
+texture = ExtResource("2_mvwbp")
+
+[node name="AttachmentManager" parent="." instance=ExtResource("7_bvmdg")]
+position = Vector2(-26, 73)

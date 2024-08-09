@@ -1,7 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://lcxw6xojgeu3"]
+[gd_scene load_steps=16 format=3 uid="uid://lcxw6xojgeu3"]
 
 [ext_resource type="Texture2D" uid="uid://diuu1nutk5h3e" path="res://rendering/smoke_04.png" id="1_3mme3"]
 [ext_resource type="Script" path="res://rendering/Poofer.cs" id="1_hh40r"]
+
+[sub_resource type="Gradient" id="Gradient_q83yi"]
+offsets = PackedFloat32Array(0, 0.525926, 1)
+colors = PackedColorArray(0.905882, 0.172549, 0, 0, 0.578142, 0.140178, 0, 1, 1, 0.176471, 0.14902, 0)
+
+[sub_resource type="Gradient" id="Gradient_h5y08"]
+offsets = PackedFloat32Array(0, 0.529851, 1)
+colors = PackedColorArray(0.229157, 0.450086, 1, 0, 0, 0.617824, 0.987272, 1, 0.337875, 0.517846, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_jfi2l"]
+offsets = PackedFloat32Array(0, 0.507463, 1)
+colors = PackedColorArray(0, 0.329515, 0.79686, 0, 0, 0.329412, 0.796078, 1, 0, 0.329515, 0.79686, 0)
 
 [sub_resource type="Gradient" id="Gradient_yt8lv"]
 offsets = PackedFloat32Array(0, 0.548148, 1)
@@ -11,9 +23,21 @@ colors = PackedColorArray(0, 0.615686, 0.188235, 0, 0.250372, 0.427743, 0.185109
 offsets = PackedFloat32Array(0, 0.507463, 1)
 colors = PackedColorArray(0, 0.329515, 0.79686, 0, 0, 0.329412, 0.796078, 1, 0, 0.329515, 0.79686, 0)
 
-[sub_resource type="Gradient" id="Gradient_q83yi"]
+[sub_resource type="Gradient" id="Gradient_hg3hd"]
 offsets = PackedFloat32Array(0, 0.525926, 1)
-colors = PackedColorArray(0.905882, 0.172549, 0, 0, 1, 0.176471, 0.14902, 1, 1, 0.176471, 0.14902, 0)
+colors = PackedColorArray(0.905882, 0.172549, 0, 0, 0.885136, 0.69884, 0.769006, 1, 1, 0.176471, 0.14902, 0)
+
+[sub_resource type="Gradient" id="Gradient_8kdap"]
+offsets = PackedFloat32Array(0, 0.525926, 1)
+colors = PackedColorArray(0.905882, 0.172549, 0, 0, 0.943199, 0.589314, 0.905423, 1, 1, 0.176471, 0.14902, 0)
+
+[sub_resource type="Gradient" id="Gradient_3hbin"]
+offsets = PackedFloat32Array(0, 0.525926, 1)
+colors = PackedColorArray(0.905882, 0.172549, 0, 0, 0.896936, 0.0124814, 7.70092e-07, 1, 1, 0.176471, 0.14902, 0)
+
+[sub_resource type="Gradient" id="Gradient_o13nk"]
+offsets = PackedFloat32Array(0, 0.525926, 1)
+colors = PackedColorArray(0.905882, 0.172549, 0, 0, 0.896936, 0.0124814, 7.70092e-07, 1, 1, 0.176471, 0.14902, 0)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qhtwc"]
 blend_mode = 1
@@ -44,9 +68,15 @@ color_ramp = SubResource("GradientTexture1D_kj1ax")
 [node name="Poofer" type="Node2D"]
 script = ExtResource("1_hh40r")
 Colors = {
+"demon": SubResource("Gradient_q83yi"),
+"ghost": SubResource("Gradient_h5y08"),
+"jedi": SubResource("Gradient_jfi2l"),
 "leafshade": SubResource("Gradient_yt8lv"),
 "neon": SubResource("Gradient_ndewp"),
-"vampire": SubResource("Gradient_q83yi")
+"nude": SubResource("Gradient_hg3hd"),
+"promdate": SubResource("Gradient_8kdap"),
+"sith": SubResource("Gradient_3hbin"),
+"vampire": SubResource("Gradient_o13nk")
 }
 
 [node name="Particles" type="GPUParticles2D" parent="."]

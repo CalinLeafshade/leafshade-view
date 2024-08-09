@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
@@ -16,6 +17,10 @@ public partial class AttachmentManager : Node2D
     {
     }
 
+    public bool HasAttachment(string name) {
+        return this.AllChildren().OfType<AttachmentItem>().Any(x => x.AttachmentName == name);
+    }
+
     public void EnableAttachment(string name)
     {
 
@@ -25,9 +30,38 @@ public partial class AttachmentManager : Node2D
 
         if (item != null)
         {
-            item.Activate();
-            item.GetSiblings().OfType<AttachmentItem>().ToList().ForEach(x => x.Deactivate());
+            item.Active = true;
+            item.GetSiblings().OfType<AttachmentItem>().ToList().ForEach(x => x.Active = false);
         }
 
     }
+
+    internal void DisableIncompatibleAttachments(string name)
+    {
+         var allAttachments = this.AllChildren().OfType<AttachmentItem>();
+
+        var item = allAttachments.FirstOrDefault(x => x.AttachmentName == name);
+
+        if (item != null)
+        {
+            item.GetSiblings().OfType<AttachmentItem>().ToList().ForEach(x => x.Active = false);
+        }
+    }
+
+    internal void DisableAttachment(string name)
+    {
+         var allAttachments = this.AllChildren().OfType<AttachmentItem>();
+
+        var item = allAttachments.FirstOrDefault(x => x.AttachmentName == name);
+
+        if (item != null) {
+            item.Active = false;
+        }
+    }
+
+    internal IEnumerable<string> GetAllAttachmentNames()
+    {
+        return this.AllChildren().OfType<AttachmentItem>().Select(x => x.AttachmentName);
+    }
+
 }

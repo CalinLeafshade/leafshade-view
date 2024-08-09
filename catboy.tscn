@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfpsmclc3clho"]
+[gd_scene load_steps=17 format=3 uid="uid://cfpsmclc3clho"]
 
 [ext_resource type="Script" path="res://sets/catboy/Catboy.cs" id="1_rj072"]
 [ext_resource type="Texture2D" uid="uid://csn1fn26a6yl7" path="res://sets/catboy/idle.png" id="2_ik6mb"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://vpka0n8dqbyx" path="res://sets/catboy/blink.png" id="4_1lbdi"]
 [ext_resource type="Texture2D" uid="uid://biwo73ajhotkm" path="res://sets/catboy/talkblink.png" id="5_kgyjc"]
 [ext_resource type="PackedScene" uid="uid://c41beb61gk2jg" path="res://Tail.tscn" id="6_l0gdx"]
+[ext_resource type="PackedScene" uid="uid://bctl16q06n62" path="res://DefaultAttachments.tscn" id="8_av4pf"]
+[ext_resource type="Texture2D" uid="uid://cg4fx5kwy5jod" path="res://sets/catboy/cateyes.png" id="8_rk5kx"]
+[ext_resource type="Script" path="res://EyeGlow.cs" id="9_vy5an"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_sgios"]
 diffuse_texture = ExtResource("2_ik6mb")
@@ -24,9 +27,17 @@ normal_texture = ExtResource("3_3tash")
 diffuse_texture = ExtResource("5_kgyjc")
 normal_texture = ExtResource("3_3tash")
 
-[node name="Catboy" type="Node2D"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8v0qf"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_20tdk"]
+diffuse_texture = ExtResource("8_rk5kx")
+
+[node name="Catboy" type="Node2D" node_paths=PackedStringArray("AttachmentManager")]
 script = ExtResource("1_rj072")
 SetName = "catboy"
+AttachmentManager = NodePath("AttachmentManager")
 Idle = SubResource("CanvasTexture_sgios")
 Talk = SubResource("CanvasTexture_lmv3a")
 Blink = SubResource("CanvasTexture_dwn6d")
@@ -42,3 +53,13 @@ SpriteSet = NodePath("..")
 unique_name_in_owner = true
 position = Vector2(0, -360)
 texture = ExtResource("2_ik6mb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite" node_paths=PackedStringArray("SpriteSet")]
+self_modulate = Color(1, 1, 1, 0.784314)
+material = SubResource("CanvasItemMaterial_8v0qf")
+position = Vector2(12, -49)
+texture = SubResource("CanvasTexture_20tdk")
+script = ExtResource("9_vy5an")
+SpriteSet = NodePath("../..")
+
+[node name="AttachmentManager" parent="." instance=ExtResource("8_av4pf")]

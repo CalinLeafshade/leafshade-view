@@ -32,7 +32,7 @@ public partial class SetSwitcher : Node2D
         }
     }
 
-    private IEnumerable<SpriteSet> GetSets()
+    public IEnumerable<SpriteSet> GetSets()
     {
         return GetChildren().OfType<SpriteSet>();
     }
@@ -42,4 +42,5 @@ public partial class SetSwitcher : Node2D
         return GetChildren().OfType<SpriteSet>().FirstOrDefault(x => x.SetName == name);
     }
 
+   
 }

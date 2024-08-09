@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyxwta0l1wxus"]
+
+[ext_resource type="Script" path="res://rendering/AttachmentItem.cs" id="1_2vwjn"]
+[ext_resource type="Texture2D" uid="uid://b48qpikdvxch5" path="res://gfx/RoseGlasses.png" id="2_s2yla"]
+[ext_resource type="Texture2D" uid="uid://rxw4ydqg83e4" path="res://sets/ghost/idle_n.png" id="3_4gs3n"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ks2dv"]
+diffuse_texture = ExtResource("2_s2yla")
+normal_texture = ExtResource("3_4gs3n")
+
+[node name="RoseGlasses" type="Node2D"]
+script = ExtResource("1_2vwjn")
+AttachmentName = "roseglasses"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(11, -424)
+texture = SubResource("CanvasTexture_ks2dv")

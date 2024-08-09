@@ -1,0 +1,51 @@
+[gd_scene load_steps=15 format=3 uid="uid://dwul7pgce4ikw"]
+
+[ext_resource type="Script" path="res://rendering/SpriteSet.cs" id="1_i2oh4"]
+[ext_resource type="Texture2D" uid="uid://dueqnkg4h5kxa" path="res://sets/mario/idle.png" id="2_uyaav"]
+[ext_resource type="Texture2D" uid="uid://cokw5xpqm8hsx" path="res://sets/mario/idle_n.png" id="3_h6kat"]
+[ext_resource type="Texture2D" uid="uid://vtur0qyojrel" path="res://sets/mario/talk.png" id="4_pff2n"]
+[ext_resource type="Texture2D" uid="uid://bemkmsgprux8h" path="res://sets/mario/blink.png" id="5_p8rtt"]
+[ext_resource type="Texture2D" uid="uid://bfyfuo7ceqjwy" path="res://sets/mario/talkblink.png" id="6_1xesx"]
+[ext_resource type="Texture2D" uid="uid://boikfn1hs2um1" path="res://sets/mario/mustache.png" id="7_5aniv"]
+[ext_resource type="PackedScene" uid="uid://bctl16q06n62" path="res://DefaultAttachments.tscn" id="7_cihje"]
+[ext_resource type="Texture2D" uid="uid://3gmp2kfcbfsg" path="res://sets/mario/mustache_n.png" id="8_ki7fw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tb4jw"]
+diffuse_texture = ExtResource("2_uyaav")
+normal_texture = ExtResource("3_h6kat")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_16ecj"]
+diffuse_texture = ExtResource("4_pff2n")
+normal_texture = ExtResource("3_h6kat")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_i0hjn"]
+diffuse_texture = ExtResource("5_p8rtt")
+normal_texture = ExtResource("3_h6kat")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3rr08"]
+diffuse_texture = ExtResource("6_1xesx")
+normal_texture = ExtResource("3_h6kat")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6tp2k"]
+diffuse_texture = ExtResource("7_5aniv")
+normal_texture = ExtResource("8_ki7fw")
+
+[node name="Mario" type="Node2D" node_paths=PackedStringArray("AttachmentManager")]
+script = ExtResource("1_i2oh4")
+SetName = "mario"
+AttachmentManager = NodePath("AttachmentManager")
+Idle = SubResource("CanvasTexture_tb4jw")
+Talk = SubResource("CanvasTexture_16ecj")
+Blink = SubResource("CanvasTexture_i0hjn")
+TalkBlink = SubResource("CanvasTexture_3rr08")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-3, -471)
+texture = ExtResource("2_uyaav")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+visible = false
+texture = SubResource("CanvasTexture_6tp2k")
+
+[node name="AttachmentManager" parent="." instance=ExtResource("7_cihje")]
